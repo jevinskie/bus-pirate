@@ -134,6 +134,8 @@ unsigned char USBUSARTIsTxTrfReady(void);
 //
 // Read the lower 16 bits from programming flash memory
 unsigned int bpReadFlash(unsigned int page, unsigned int addr);
+// Read the full 24 bits from programming flash memory
+unsigned long int bpReadFlashFull(unsigned int page, unsigned int addr);
 
 #endif
 

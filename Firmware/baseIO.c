@@ -250,11 +250,24 @@ void bpWvolts(const unsigned int adc) {
 
 unsigned int bpReadFlash(unsigned int page, unsigned int addr) {
     unsigned int tblold;
-    unsigned flash;
+    unsigned int flash;
 
     tblold = TBLPAG;
     TBLPAG = page;
-    flash = (__builtin_tblrdh(addr) << 8) | __builtin_tblrdl(addr);
+    flash = __builtin_tblrdl(addr);
+    TBLPAG = tblold;
+
+    return flash;
+}
+
+// Read the full 24 bits from programming flash memory
+unsigned long int bpReadFlashFull(unsigned int page, unsigned int addr) {
+    unsigned int tblold;
+    unsigned long int flash;
+
+    tblold = TBLPAG;
+    TBLPAG = page;
+    flash = (__builtin_tblrdh(addr) << 16) | __builtin_tblrdl(addr);
     TBLPAG = tblold;
 
     return flash;
