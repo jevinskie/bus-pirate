@@ -51,6 +51,9 @@ void bpWhex(unsigned int c);
 //output an 16bit/2byte hex value to the user terminal
 void bpWinthex(unsigned int c); 
 
+//output an 32bit/4byte hex value to the user terminal
+void bpWlonghex(unsigned long int c);
+
 //output an 8bit/byte binary value to the user terminal
 void bpWbin(unsigned char c);
 
