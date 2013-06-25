@@ -1,0 +1,8 @@
+
+# /BPv4-bootloader/pirate-loader/
+/BPv4-bootloader/pirate-loader/bin
+/BPv4-bootloader/pirate-loader/obj
+
+# /Firmware/
+/Firmware/output
+/Firmware/work
