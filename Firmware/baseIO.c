@@ -222,25 +222,11 @@ void bpWinthex(unsigned int c) {
 // output a 32bit hex value to the user terminal
 
 void bpWlonghex(unsigned long int c) {
-    unsigned long int b;
-
     bpWstring("0x");
-    b = (c>>28) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = (c>>24) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = (c>>20) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = (c>>16) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = (c>>12) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = (c>>8) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = (c>>4) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = c & 0x0F;
-    UART1TX(HEXASCII[b]);
+    int i;
+    for (i = 28; i >= 0; i -= 4) {
+        UART1TX(HEXASCII[(c >> i) & 0xF]);
+    }
     return;
 }
 
