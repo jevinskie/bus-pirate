@@ -55,6 +55,11 @@
 
 
 ////////////////////////////////////////
+// FREQUENCY
+// Frequency in hertz, used for bpDelayMS and bpDelayUS
+#define FCY 8000000
+
+////////////////////////////////////////
 // LANGUAGE
 // Select language (US AND DE Currently Supported)
 // If you know anyone bi-le
@@ -287,11 +292,13 @@ void bpADCCprobe(void);
 //  specified by the bpConfig.displayMode setting
 void bpWbyte(unsigned int c);
 
+
+#include <libpic30.h>
 //delays used by many libraries
 //void bpDelayMS(const unsigned char delay);
 //void bpDelayUS(const unsigned char delay);
-void bpDelayMS(int delay);
-void bpDelayUS(int delay);
+#define bpDelayMS __delay_ms
+#define bpDelayUS __delay_us
 #endif
 
 

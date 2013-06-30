@@ -158,43 +158,6 @@ void bpWbyte(unsigned int c)
 	}
 }
 
-//delay in MS
-//void bpDelayMS(const unsigned char delay)
-void bpDelayMS(int delay)
-{	int i, c;
-	
-	for(c=0;c<delay;c++){
-		for(i=0;i<4;i++) bpDelayUS(250);
-	}
-
-}
-
-//delay in US
-//void bpDelayUS(const unsigned char delay)
-void bpDelayUS(int delay)
-{
-	int i;
-	
-	for(i=0;i<delay;i++){//@32MHz = 16MIPS, 16I/uS
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-		asm( "nop" );
-	}
-}
-
 
 /*
 unsigned char bpRevByte(unsigned char c){
