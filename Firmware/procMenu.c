@@ -669,7 +669,7 @@ bpv4reset:
                         bpDelayMS(100);
                         bpInit(); // turn off nasty things, cleanup first needed?
                         while (0 == UART1TXRdy()); //wait untill TX finishes
-                        asm volatile ("mov #BLJUMPADDRESS, w1 \n" //bootloader location
+                        asm volatile ("mov #BLJUMPADDRESS, w1 \n\t" //bootloader location
                                     "goto w1 \n");
                     }
                     break;
