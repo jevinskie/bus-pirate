@@ -205,17 +205,11 @@ void bpWhexBuf(unsigned int c) {
 // output a 16bit hex value to the user terminal
 
 void bpWinthex(unsigned int c) {
-    unsigned int b;
-
     bpWstring("0x");
-    b = (c >> 12) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = (c >> 8) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = (c >> 4) & 0x0F;
-    UART1TX(HEXASCII[b]);
-    b = c & 0x0F;
-    UART1TX(HEXASCII[b]);
+    int i;
+    for (i = 12; i >= 0; i -= 4) {
+        UART1TX(HEXASCII[(c >> i) & 0xF]);
+    }
     return;
 }
 
